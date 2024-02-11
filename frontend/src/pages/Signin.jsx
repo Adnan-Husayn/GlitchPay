@@ -7,6 +7,7 @@ import { SubHeading } from "../components/SubHeading"
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { Dashboard } from "./Dashboard";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export const Signin = () => {
   const [username, setUsername] = useState(null);
@@ -15,7 +16,7 @@ export const Signin = () => {
 
   const submit = async (e) => {
     e.preventDefault();
-    const response = await axios.post(process.env.REACT_APP_API_URL, {
+    const response = await axios.post(apiUrl, {
       username: username,
       password: pass
     })

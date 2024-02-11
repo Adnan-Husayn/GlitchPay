@@ -5,6 +5,7 @@ import { Users } from "../components/Users"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { Signin } from './Signin';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export const Dashboard = () => {
 
@@ -15,14 +16,14 @@ export const Dashboard = () => {
 
     const fetchData = async () => {
         try {
-          const response = await axios.get(process.env.REACT_APP_API_URL, {
+          const response = await axios.get(apiUrl, {
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem("token")
             }
           });
           setBalance(response.data.balance);
 
-            const response2 = await axios.get(process.env.REACT_APP_API_URL, {
+            const response2 = await axios.get(apiUrl, {
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem("token")
                 }

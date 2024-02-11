@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Button } from "./Button"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export const Users = ({user}) => {
     const userId = user._id;
@@ -10,7 +10,7 @@ export const Users = ({user}) => {
     const [filter, setFilter] = useState("");
 
     useEffect(() => {
-        axios.get(process.env.REACT_APP_API_URL + filter)
+        axios.get(apiUrl+ filter)
             .then(response => {
                 setUsers(response.data.user)
             })

@@ -10,7 +10,7 @@ export const Users = ({user}) => {
     const [filter, setFilter] = useState("");
 
     useEffect(() => {
-        axios.get("http://localhost:3000/api/v1/user/bulk?filter=" + filter)
+        axios.get(process.env.REACT_APP_API_URL + filter)
             .then(response => {
                 setUsers(response.data.user)
             })

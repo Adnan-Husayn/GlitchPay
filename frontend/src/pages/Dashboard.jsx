@@ -15,14 +15,14 @@ export const Dashboard = () => {
 
     const fetchData = async () => {
         try {
-          const response = await axios.get("http://localhost:3000/api/v1/account/balance", {
+          const response = await axios.get(process.env.REACT_APP_API_URL, {
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem("token")
             }
           });
           setBalance(response.data.balance);
 
-            const response2 = await axios.get('http://localhost:3000/api/v1/user/lolzsec/2011', {
+            const response2 = await axios.get(process.env.REACT_APP_API_URL, {
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem("token")
                 }

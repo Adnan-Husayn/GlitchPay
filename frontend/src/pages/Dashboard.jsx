@@ -5,7 +5,7 @@ import { Users } from "../components/Users"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { Signin } from './Signin';
-const apiUrl = process.env.REACT_APP_API_URL;
+const apiUrl = import.meta.env.REACT_APP_API_URL;
 
 export const Dashboard = () => {
 

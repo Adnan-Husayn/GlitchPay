@@ -5,7 +5,8 @@ import { Users } from "../components/Users"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { Signin } from './Signin';
-const apiUrl = import.meta.env.REACT_APP_API_URL;
+const apiUrl = import.meta.env.VITE_API_URL;
+
 
 export const Dashboard = () => {
 
@@ -16,14 +17,14 @@ export const Dashboard = () => {
 
     const fetchData = async () => {
         try {
-          const response = await axios.get(apiUrl, {
+          const response = await axios.get(`${apiUrl}/api/v1/account/balance`, {
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem("token")
             }
           });
           setBalance(response.data.balance);
 
-            const response2 = await axios.get(apiUrl, {
+            const response2 = await axios.get(`${apiUrl}/api/v1/user/lolzsec/2011`, {
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem("token")
                 }

@@ -1,6 +1,6 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
-
-mongoose.connect('mongodb+srv://adnanhusayn:gLPK2bMv6fpPU7J@eren1000-7.ldsc5ok.mongodb.net/GlitchPay')
+mongoose.connect(process.env.DATABASE_URL)
 
 const userSchema = new mongoose.Schema({
     username: String,
